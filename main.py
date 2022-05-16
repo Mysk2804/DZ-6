@@ -141,12 +141,55 @@ print(best_student)
 print()
 print(cool_lecturer)
 print()
+print(best_lecturer)
+print()
 print(cool_reviewer)
 print()
 best_student.__lt__(super_student)
 print()
 it = cool_lecturer >best_lecturer
+print()
 
+
+
+students = [best_student, super_student]
+lecturers = [best_lecturer, cool_lecturer]
+
+
+def avr_stud(list_):
+    save_cours = 0
+    save_gread = 0
+    cours_list = input('Введите название курса для подсчета средней оценки всех студентов: ')
+
+    for student in list_:
+        if cours_list in student.grades:
+            for i in student.grades.get(cours_list):
+                save_cours += i
+                save_gread += 1
+        else:
+            return ('Ошибка, введите коректно название курса')
+        return (f'Средняя оценка студентов по домашнему заданию: {cours_list}, {save_cours / save_gread}')
+
+
+def avr_lectors(list_):
+    save_cours = 0
+    save_gread = 0
+    cours_list = input('Введите название курса для подсчета средней оценки всех лекторов: ')
+
+    for lector in list_:
+        if cours_list in lector.grades:
+            for i in lector.grades.get(cours_list):
+                save_cours += i
+                save_gread += 1
+        else:
+            return ('Ошибка, введите коректно название курса')
+        return (f'Средняя оценка за лекции по предмету {cours_list} всех лекторов: {save_cours / save_gread}')
+
+
+
+print(avr_stud(students))
+print()
+print(avr_lectors(lecturers))
 
 
 
